@@ -1,4 +1,4 @@
-Feature: Some Feature
+Feature: Planing a Workout
 
   Background:
     Given the system is operational
