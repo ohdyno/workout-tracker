@@ -1,4 +1,4 @@
-package me.xingzhou.workout.tracker;
+package me.xingzhou.workout.tracker.athlete;
 
 import me.xingzhou.simple.event.store.Event;
 

@@ -4,11 +4,11 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import me.xingzhou.simple.event.store.Event;
 import me.xingzhou.simple.event.store.EventStoreBuilder;
-import me.xingzhou.workout.tracker.AthleteDefined;
-import me.xingzhou.workout.tracker.IdGenerator;
+import me.xingzhou.workout.tracker.athlete.AthleteDefined;
+import me.xingzhou.workout.tracker.tooling.IdGenerator;
 import me.xingzhou.workout.tracker.WorkoutCommandService;
-import me.xingzhou.workout.tracker.WorkoutCreated;
-import me.xingzhou.workout.tracker.commands.DefineAthlete;
+import me.xingzhou.workout.tracker.workout.WorkoutCreated;
+import me.xingzhou.workout.tracker.athlete.DefineAthlete;
 import me.xingzhou.workout.tracker.feature.states.TestState;
 
 import java.util.Map;

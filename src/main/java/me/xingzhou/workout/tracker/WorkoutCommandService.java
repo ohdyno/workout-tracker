@@ -1,10 +1,12 @@
 package me.xingzhou.workout.tracker;
 
 import me.xingzhou.simple.event.store.EventStore;
-import me.xingzhou.workout.AthleteId;
-import me.xingzhou.workout.tracker.commands.DefineAthlete;
-import me.xingzhou.workout.tracker.entities.Athlete;
-import me.xingzhou.workout.tracker.entities.Workout;
+import me.xingzhou.workout.tracker.athlete.Athlete;
+import me.xingzhou.workout.tracker.athlete.AthleteDefined;
+import me.xingzhou.workout.tracker.athlete.AthleteId;
+import me.xingzhou.workout.tracker.athlete.DefineAthlete;
+import me.xingzhou.workout.tracker.tooling.IdGenerator;
+import me.xingzhou.workout.tracker.workout.*;
 
 public class WorkoutCommandService {
     private final EventStore eventStore;
@@ -13,10 +15,6 @@ public class WorkoutCommandService {
     public WorkoutCommandService(EventStore eventStore, IdGenerator idGenerator) {
         this.eventStore = eventStore;
         this.idGenerator = idGenerator;
-    }
-
-    public RecordedSet handle(RecordSet recordSet) {
-        return new RecordedSet();
     }
 
     public AthleteId handle(DefineAthlete defineAthlete) {

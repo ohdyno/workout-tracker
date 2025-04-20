@@ -1,4 +1,4 @@
-package me.xingzhou.workout.tracker;
+package me.xingzhou.workout.tracker.tooling;
 
 import java.util.UUID;
 

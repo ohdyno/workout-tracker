@@ -1,4 +1,4 @@
-package me.xingzhou.workout.tracker.commands;
+package me.xingzhou.workout.tracker.athlete;
 
 public record DefineAthlete(String email) {
 }

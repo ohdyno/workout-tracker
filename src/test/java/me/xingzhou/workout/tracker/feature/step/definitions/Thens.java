@@ -2,9 +2,9 @@ package me.xingzhou.workout.tracker.feature.step.definitions;
 
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
-import me.xingzhou.workout.tracker.WorkoutId;
-import me.xingzhou.workout.tracker.entities.Workout;
-import me.xingzhou.workout.tracker.entities.WorkoutName;
+import me.xingzhou.workout.tracker.workout.WorkoutId;
+import me.xingzhou.workout.tracker.workout.Workout;
+import me.xingzhou.workout.tracker.workout.WorkoutName;
 import me.xingzhou.workout.tracker.feature.states.TestState;
 
 import static org.assertj.core.api.Assertions.assertThat;
