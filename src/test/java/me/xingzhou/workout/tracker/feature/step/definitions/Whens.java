@@ -1,6 +1,7 @@
 package me.xingzhou.workout.tracker.feature.step.definitions;
 
 import io.cucumber.java.en.When;
+import me.xingzhou.workout.tracker.CreateWorkout;
 import me.xingzhou.workout.tracker.feature.states.TestState;
 
 public class Whens {
@@ -10,8 +11,8 @@ public class Whens {
         this.state = state;
     }
 
-    @When("a when")
-    public void aWhen() {
-
+    @When("the athlete creates a new workout named {string}")
+    public void theAthleteCreatesANewWorkoutNamed(String workoutName) {
+        state.result = state.commandService.handle(new CreateWorkout(state.athleteId.id(), workoutName));
     }
 }

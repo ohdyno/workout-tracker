@@ -1,4 +1,4 @@
 package me.xingzhou.workout.tracker;
 
-public record CreatePlan() {
+public record WorkoutId(String id) {
 }
