@@ -2,6 +2,7 @@ Feature: Planning a Workout
 
   Background:
     Given the system is operational
+    And the athlete has an account in the system
 
   Scenario: An athlete creates a new workout
     When the athlete creates a new workout named "Monday Strength"
