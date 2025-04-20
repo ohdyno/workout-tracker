@@ -6,8 +6,8 @@ Feature: Planning a Workout
 
   Scenario: An athlete creates a new workout
     When the athlete creates a new workout named "Monday Strength"
-    Then the workout "Monday Strength" should be created
-    And the workout "Monday Strength" should have 0 sets
+    Then the workout should be created with name "Monday Strength"
+    And the workout should have 0 sets
 
   Scenario: An athlete adds a set to an existing workout
     Given a workout named "Monday Strength" exists

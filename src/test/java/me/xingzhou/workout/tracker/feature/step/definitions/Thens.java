@@ -16,18 +16,18 @@ public class Thens {
         this.state = state;
     }
 
-    @Then("the workout {string} should be created")
-    public void theWorkoutShouldBeCreated(String workoutName) {
+    @And("the workout should have {int} sets")
+    public void theWorkoutShouldHaveSets(int numberOfSets) {
+        var workoutId = (WorkoutId) state.result;
+        var workout = state.eventStore.enrich(new Workout(workoutId));
+        assertThat(workout.sets().size()).isEqualTo(numberOfSets);
+    }
+
+    @Then("the workout should be created with name {string}")
+    public void theWorkoutShouldBeCreatedWithName(String workoutName) {
         var workoutId = (WorkoutId) state.result;
         var workout = state.eventStore.enrich(new Workout(workoutId));
         assertThat(workout.isDefined()).isTrue();
         assertThat(workout.name()).isEqualTo(new WorkoutName(workoutName));
-    }
-
-    @And("the workout {string} should have {int} sets")
-    public void theWorkoutShouldHaveSets(String workoutName, int numberOfSets) {
-        var workoutId = (WorkoutId) state.result;
-        var workout = state.eventStore.enrich(new Workout(workoutId));
-        assertThat(workout.sets().size()).isEqualTo(numberOfSets);
     }
 }
