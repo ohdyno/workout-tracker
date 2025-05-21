@@ -1,10 +1,9 @@
 package me.xingzhou.workout.tracker.workout;
 
-import me.xingzhou.simple.event.store.entities.BaseAggregate;
-import me.xingzhou.simple.event.store.ids.StreamName;
-
 import java.util.ArrayList;
 import java.util.List;
+import me.xingzhou.simple.event.store.entities.BaseAggregate;
+import me.xingzhou.simple.event.store.ids.StreamName;
 
 public class Workout extends BaseAggregate {
     private final WorkoutId id;
@@ -19,20 +18,20 @@ public class Workout extends BaseAggregate {
         this.name = new WorkoutName(event.workoutName());
     }
 
-    @Override
-    public StreamName streamName() {
-        return new StreamName(id.id());
-    }
-
-    public List<WorkoutSet> sets() {
-        return sets;
+    public WorkoutId id() {
+        return id;
     }
 
     public WorkoutName name() {
         return name;
     }
 
-    public WorkoutId id() {
-        return id;
+    public List<WorkoutSet> sets() {
+        return sets;
+    }
+
+    @Override
+    public StreamName streamName() {
+        return new StreamName(id.id());
     }
 }

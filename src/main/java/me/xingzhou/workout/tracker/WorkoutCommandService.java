@@ -17,15 +17,19 @@ public class WorkoutCommandService {
         this.idGenerator = idGenerator;
     }
 
-    public AthleteId handle(DefineAthlete defineAthlete) {
-        var athleteId = idGenerator.generateForAthlete(defineAthlete.email());
-        var athlete = eventStore.save(new AthleteDefined(athleteId, defineAthlete.email()), Athlete.withEmail(athleteId, defineAthlete.email()));
-        return athlete.id();
-    }
-
     public WorkoutId handle(CreateWorkout createWorkout) {
         var workoutId = idGenerator.generateForWorkout(createWorkout.workoutName(), createWorkout.athleteId());
-        var workout = eventStore.save(new WorkoutCreated(createWorkout.athleteId(), createWorkout.workoutName()), new Workout(new WorkoutId(workoutId)));
+        var workout = eventStore.save(
+                new WorkoutCreated(createWorkout.athleteId(), createWorkout.workoutName()),
+                new Workout(new WorkoutId(workoutId)));
         return workout.id();
+    }
+
+    public AthleteId handle(DefineAthlete defineAthlete) {
+        var athleteId = idGenerator.generateForAthlete(defineAthlete.email());
+        var athlete = eventStore.save(
+                new AthleteDefined(athleteId, defineAthlete.email()),
+                Athlete.withEmail(athleteId, defineAthlete.email()));
+        return athlete.id();
     }
 }

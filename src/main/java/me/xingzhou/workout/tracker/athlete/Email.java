@@ -1,4 +1,3 @@
 package me.xingzhou.workout.tracker.athlete;
 
-public record Email(String email) {
-}
+public record Email(String email) {}
