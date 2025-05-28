@@ -4,6 +4,10 @@
   <groupId>me.xingzhou</groupId>
   <artifactId>workout-tracker</artifactId>
   <version>${revision}</version>
+  <packaging>pom</packaging>
+  <modules>
+    <module>domain</module>
+  </modules>
   <properties>
     <maven.compiler.release>21</maven.compiler.release>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
