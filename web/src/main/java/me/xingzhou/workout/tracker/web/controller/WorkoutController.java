@@ -3,12 +3,13 @@ package me.xingzhou.workout.tracker.web.controller;
 import me.xingzhou.workout.tracker.web.service.DemoWorkoutService;
 import me.xingzhou.workout.tracker.workout.CreateWorkout;
 import me.xingzhou.workout.tracker.workout.WorkoutId;
-import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-/** REST controller for workout operations. */
-@RestController
-@RequestMapping("/api/workouts")
+/** Controller for workout operations that returns HTML views. */
+@Controller
+@RequestMapping("/workouts")
 public class WorkoutController {
 
     private final DemoWorkoutService workoutService;
@@ -18,7 +19,7 @@ public class WorkoutController {
     }
 
     @PostMapping
-    public ResponseEntity<WorkoutResponse> createWorkout(@RequestBody CreateWorkoutRequest request) {
+    public String createWorkout(@ModelAttribute CreateWorkoutRequest request, Model model) {
         // For demonstration, we're using a fixed athlete ID
         String athleteId = "demo-athlete-1";
 
@@ -28,13 +29,19 @@ public class WorkoutController {
         // Handle the command using our demo service
         WorkoutId workoutId = workoutService.handleCreateWorkout(command);
 
-        // Return the response with the workout ID and name
-        return ResponseEntity.ok(new WorkoutResponse(workoutId.id(), request.name()));
+        // Add attributes to the model for the template
+        model.addAttribute("id", workoutId.id());
+        model.addAttribute("name", request.name());
+
+        // Return the template name
+        return "workout-created";
+    }
+
+    @GetMapping
+    public String getWorkoutForm() {
+        return "workout-form";
     }
 
     /** Request object for creating a workout. */
     record CreateWorkoutRequest(String name) {}
-
-    /** Response object for workout operations. */
-    record WorkoutResponse(String id, String name) {}
 }
