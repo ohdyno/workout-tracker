@@ -1,10 +1,11 @@
 package me.xingzhou.workout.tracker.web.controller;
 
+import me.xingzhou.workout.tracker.web.model.WorkoutCreatedModel;
+import me.xingzhou.workout.tracker.web.model.WorkoutFormModel;
 import me.xingzhou.workout.tracker.web.service.DemoWorkoutService;
 import me.xingzhou.workout.tracker.workout.CreateWorkout;
 import me.xingzhou.workout.tracker.workout.WorkoutId;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 /** Controller for workout operations that returns HTML views. */
@@ -19,7 +20,7 @@ public class WorkoutController {
     }
 
     @PostMapping
-    public String createWorkout(@ModelAttribute CreateWorkoutRequest request, Model model) {
+    public WorkoutCreatedModel createWorkout(@ModelAttribute CreateWorkoutRequest request) {
         // For demonstration, we're using a fixed athlete ID
         String athleteId = "demo-athlete-1";
 
@@ -29,17 +30,13 @@ public class WorkoutController {
         // Handle the command using our demo service
         WorkoutId workoutId = workoutService.handleCreateWorkout(command);
 
-        // Add attributes to the model for the template
-        model.addAttribute("id", workoutId.id());
-        model.addAttribute("name", request.name());
-
-        // Return the template name
-        return "workout-created";
+        // Return the model for the template
+        return new WorkoutCreatedModel(request.name(), workoutId.id());
     }
 
     @GetMapping
-    public String getWorkoutForm() {
-        return "workout-form";
+    public WorkoutFormModel getWorkoutForm() {
+        return new WorkoutFormModel();
     }
 
     /** Request object for creating a workout. */
