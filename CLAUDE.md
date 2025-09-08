@@ -43,6 +43,7 @@ This is a multi-module Maven project implementing a workout tracking application
 - **CQRS**: Commands are handled through `WorkoutCommandService`, events are applied to aggregates
 - **Domain Models**: `Workout` and `Athlete` are aggregate roots extending `BaseAggregate`
 - **Value Objects**: `WorkoutId`, `AthleteId`, `Email`, `WorkoutName` for type safety
+- **Clear Layer Separation**: Maintain a strict boundary between domain layer and presentation layer (currently server-side rendered web)
 
 ### Domain Model
 
@@ -64,10 +65,17 @@ This is a multi-module Maven project implementing a workout tracking application
 - **Test Structure**: Step definitions in `step.definitions` package with shared `TestState`
 - **Feature Tests**: Cover workout planning scenarios including creating workouts and managing sets
 
+### Development Approach
+
+- **TDD/BDD Preferred**: All new features should be developed using Test-Driven Development
+- **Gherkin First**: Write failing Gherkin scenarios before implementation
+- **Red-Green-Refactor**: Follow the TDD cycle with BDD scenarios driving the implementation
+
 ### Code Quality
 
 - **Spotless**: Automated code formatting with Palantir Java Format
 - **Git Hooks**: Pre-commit hook automatically runs `spotless:apply` and stages formatted files
 - **Maven Enforcer**: Requires Maven 3.9.9+
 - **Java 21**: Target JVM version
+- Maintain a clear boundary between the domain layer of the workout tracker and the presentation layer, which currently is via a server-side rendered web application.
 
