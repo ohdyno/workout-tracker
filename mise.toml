@@ -1,0 +1,4 @@
+[tools]
+claude = "latest"
+java = "latest"
+uv = "latest"
