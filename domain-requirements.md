@@ -13,15 +13,23 @@ A **set** records the following essential information:
 Athletes think about weight in terms of **plates per side** for barbell or plate-loaded machines, not total weight.
 
 Weight is recorded as three separate components:
-- **Implement**: The TYPE of equipment being used (e.g., "barbell", "ez bar", "dumbbell", "machine")
-- **Implement Weight**: The weight of that specific piece of equipment (e.g., 20 kg for a standard Olympic barbell, 15 kg for a women's bar, 126 lb for a specific machine)
+- **Implement**: Free-form text identifying the specific piece of equipment (e.g., "Olympic barbell", "ez bar", "Life Fitness chest press", "Hammer Strength leg press", "16kg kettlebell")
+- **Implement Weight**: The weight of that specific piece of equipment (e.g., 20 kg for a standard Olympic barbell, 15 kg for a women's bar, 126 lb for a Life Fitness machine, 90 lb for a Hammer Strength machine)
 - **Plates Per Side**: A LIST of individual plates loaded on each side (e.g., [45 lb, 25 lb, 5 lb])
 
+**Why implement is free-form:** Different equipment manufacturers have different base weights, especially for plate-loaded machines. Athletes need to distinguish between "Life Fitness chest press" (126 lb) and "Hammer Strength chest press" (90 lb) to accurately track their total weight.
+
 **Example - Deadlift:**
-- Implement: "barbell"
+- Implement: "Olympic barbell"
 - Implement weight: 20 kg
 - Plates per side: [45 lb, 25 lb, 5 lb]
 - Total weight: 20 kg + 2 × (45 + 25 + 5) lb = 20 kg + 150 lb
+
+**Example - Machine Exercise:**
+- Implement: "Hammer Strength chest press"
+- Implement weight: 90 lb
+- Plates per side: [45 lb, 25 lb]
+- Total weight: 90 lb + 2 × (45 + 25) lb = 90 lb + 140 lb = 230 lb
 
 Tracking plates as individual items (rather than a sum) enables the plate calculation assistant to tell the athlete exactly which plates to load.
 
@@ -71,7 +79,7 @@ This eliminates mental math during workouts and reduces errors in plate loading.
 
 ### Domain Language
 
-- **Implement**: The TYPE of equipment (e.g., "barbell", "ez bar", "dumbbell", "machine")
+- **Implement**: Free-form text label identifying specific equipment (e.g., "Olympic barbell", "Life Fitness chest press", "16kg kettlebell"). Used to distinguish between different pieces of equipment that may have different base weights.
 - **Implement weight**: The weight of the specific piece of equipment being used
 - **Plates per side**: A list of individual weight plates loaded on one side of the barbell/machine
 - **Technical failure**: Loss of range of motion compared to first rep
