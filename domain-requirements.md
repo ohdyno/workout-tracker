@@ -12,10 +12,18 @@ A **set** records the following essential information:
 
 Athletes think about weight in terms of **plates per side** for barbell or plate-loaded machines, not total weight.
 
-Weight is recorded as:
-- **Implement**: The base equipment being used (e.g., "20kg barbell", "126lb machine", "bodyweight")
-- **Implement Weight**: The weight of the implement itself
-- **Plates Per Side**: The plates loaded on each side
+Weight is recorded as three separate components:
+- **Implement**: The TYPE of equipment being used (e.g., "barbell", "ez bar", "dumbbell", "machine")
+- **Implement Weight**: The weight of that specific piece of equipment (e.g., 20 kg for a standard Olympic barbell, 15 kg for a women's bar, 126 lb for a specific machine)
+- **Plates Per Side**: A LIST of individual plates loaded on each side (e.g., [45 lb, 25 lb, 5 lb])
+
+**Example - Deadlift:**
+- Implement: "barbell"
+- Implement weight: 20 kg
+- Plates per side: [45 lb, 25 lb, 5 lb]
+- Total weight: 20 kg + 2 × (45 + 25 + 5) lb = 20 kg + 150 lb
+
+Tracking plates as individual items (rather than a sum) enables the plate calculation assistant to tell the athlete exactly which plates to load.
 
 ### Set Completion Types
 
@@ -63,8 +71,9 @@ This eliminates mental math during workouts and reduces errors in plate loading.
 
 ### Domain Language
 
-- **Implement**: The base equipment (barbell, machine, bodyweight, etc.)
-- **Plates per side**: Weight plates loaded on one side of the barbell/machine
+- **Implement**: The TYPE of equipment (e.g., "barbell", "ez bar", "dumbbell", "machine")
+- **Implement weight**: The weight of the specific piece of equipment being used
+- **Plates per side**: A list of individual weight plates loaded on one side of the barbell/machine
 - **Technical failure**: Loss of range of motion compared to first rep
 - **Set**: A continuous series of repetitions of an exercise
 
