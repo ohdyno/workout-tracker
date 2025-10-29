@@ -83,12 +83,12 @@
     <dependency>
       <groupId>me.xingzhou</groupId>
       <artifactId>simple-event-store-service-loader-event-converter</artifactId>
-      <version>1.0.0-SNAPSHOT</version>
+      <version>1.0.0</version>
     </dependency>
     <dependency>
       <groupId>me.xingzhou</groupId>
       <artifactId>simple-event-store-starter</artifactId>
-      <version>1.0.0-SNAPSHOT</version>
+      <version>1.0.0</version>
     </dependency>
     <dependency>
       <groupId>org.assertj</groupId>
@@ -126,7 +126,7 @@
         <plugin>
           <groupId>com.diffplug.spotless</groupId>
           <artifactId>spotless-maven-plugin</artifactId>
-          <version>2.46.1</version>
+          <version>3.0.0</version>
           <configuration>
             <java>
               <includes>
@@ -162,7 +162,6 @@
                 <sortMembersVisibilityOrder>B,R,D,V</sortMembersVisibilityOrder>
               </eclipse>
               <palantirJavaFormat>
-                <version>2.71.0</version>
                 <style>PALANTIR</style>
                 <formatJavadoc>true</formatJavadoc>
               </palantirJavaFormat>
@@ -231,7 +230,7 @@
         <plugin>
           <groupId>com.rudikershaw.gitbuildhook</groupId>
           <artifactId>git-build-hook-maven-plugin</artifactId>
-          <version>3.5.0</version>
+          <version>3.6.0</version>
           <configuration>
             <gitConfig>
               <core.hooksPath>githooks/</core.hooksPath>
@@ -252,7 +251,7 @@
         </plugin>
         <plugin>
           <artifactId>maven-compiler-plugin</artifactId>
-          <version>3.14.0</version>
+          <version>3.14.1</version>
         </plugin>
         <plugin>
           <artifactId>maven-deploy-plugin</artifactId>
@@ -261,7 +260,7 @@
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-enforcer-plugin</artifactId>
-          <version>3.6.1</version>
+          <version>3.6.2</version>
           <executions>
             <execution>
               <id>maven.enforce</id>
@@ -296,16 +295,16 @@
         </plugin>
         <plugin>
           <artifactId>maven-site-plugin</artifactId>
-          <version>3.12.1</version>
+          <version>4.0.0-M16</version>
         </plugin>
         <plugin>
           <artifactId>maven-surefire-plugin</artifactId>
-          <version>3.5.3</version>
+          <version>3.5.4</version>
         </plugin>
         <plugin>
           <groupId>org.codehaus.mojo</groupId>
           <artifactId>flatten-maven-plugin</artifactId>
-          <version>1.7.2</version>
+          <version>1.7.3</version>
           <configuration>
             <updatePomFile>true</updatePomFile>
             <flattenMode>oss</flattenMode>
@@ -330,7 +329,7 @@
         <plugin>
           <groupId>org.codehaus.mojo</groupId>
           <artifactId>versions-maven-plugin</artifactId>
-          <version>2.18.0</version>
+          <version>2.19.1</version>
         </plugin>
       </plugins>
     </pluginManagement>
