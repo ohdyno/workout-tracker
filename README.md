@@ -1,2 +1,2 @@
-# me.xingzhou:workout-tracker
+# Simple Workout Tracker
 

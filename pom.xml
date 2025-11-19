@@ -81,16 +81,6 @@
       <artifactId>jakarta.annotation-api</artifactId>
     </dependency>
     <dependency>
-      <groupId>me.xingzhou</groupId>
-      <artifactId>simple-event-store-service-loader-event-converter</artifactId>
-      <version>1.0.0</version>
-    </dependency>
-    <dependency>
-      <groupId>me.xingzhou</groupId>
-      <artifactId>simple-event-store-starter</artifactId>
-      <version>1.0.0</version>
-    </dependency>
-    <dependency>
       <groupId>org.assertj</groupId>
       <artifactId>assertj-core</artifactId>
       <scope>test</scope>

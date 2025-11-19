@@ -10,4 +10,19 @@
   <version>${revision}</version>
   <packaging>jar</packaging>
   <name>workout-tracker-domain</name>
+  <properties>
+    <event.store.version>1.0.0</event.store.version>
+  </properties>
+  <dependencies>
+    <dependency>
+      <groupId>me.xingzhou</groupId>
+      <artifactId>simple-event-store-service-loader-event-converter</artifactId>
+      <version>${event.store.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>me.xingzhou</groupId>
+      <artifactId>simple-event-store-starter</artifactId>
+      <version>${event.store.version}</version>
+    </dependency>
+  </dependencies>
 </project>
